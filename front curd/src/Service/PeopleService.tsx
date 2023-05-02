@@ -3,10 +3,10 @@ import People from './../Model/Poeple';
 
 export default class PeopleService{
 
-    static GetPeopleByID(id: string | undefined) {
+    static async GetPeopleByID(id: string | undefined) {
         throw new Error("Method not implemented.");
     }
-    static GetPeople(): Promise<Poeple[]>{
+    static async GetPeople(): Promise<Poeple[]>{
         return fetch('http://localhost:8080/people/all', {
             headers: { "Content-Type": "application/json"}
             })
@@ -14,7 +14,7 @@ export default class PeopleService{
           .catch(error => this.handleError(error));
       }
 
-        static PeopleById(id: number): Promise<Poeple|null>{
+        static async PeopleById(id: number): Promise<Poeple|null>{
             return fetch(`http://localhost:8080/people/find/${id}`, {
                 headers: { "Content-Type": "application/json"}
                 })
@@ -23,14 +23,14 @@ export default class PeopleService{
               .catch(error => this.handleError(error));
           }
 
-        static searchPeople(term:string): Promise<Poeple[]>{
+        static async searchPeople(term:string): Promise<Poeple[]>{
             return fetch(`http://localhost:8080/people/name/${term}`, {
                 headers: { "Content-Type": "application/json"}
                 })
               .then(response => response.json())
               .catch(error => this.handleError(error));
           }
-static deletePeople(people:People): Promise<People>{
+static async deletePeople(people:People): Promise<People>{
     return fetch(`http://localhost:8080/people/${people.id}`,{
         method : "DELETE",
                 })
