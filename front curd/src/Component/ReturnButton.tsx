@@ -9,8 +9,8 @@ function ReturnButton() {
     }
 
   return (
-    <div className="p-2">
-       <button className=" rounded-lg bg-cyan-400 p-1 text-center text-white font-bold" onClick={returnPage}>Return</button>
+    <div className="p-2 text-white">
+       <button className="border hover:border-blue-500 p-1 rounded w-24 hover:bg-blue-700 bg-blue-500" onClick={returnPage}>Return</button>
     </div>
   )
 }

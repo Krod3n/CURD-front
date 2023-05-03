@@ -1,7 +1,4 @@
 export default class People {
-    static find(_arg0:(item:any) => boolean) {
-        throw new Error('Method not implemented');
-    }
 
     id: number;
     firstname: string;
